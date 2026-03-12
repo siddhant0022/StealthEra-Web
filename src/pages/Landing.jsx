@@ -7,7 +7,7 @@ function ImagePlaceholder({ label, className = '' }) {
       ].join(' ')}
     >
       <div className="px-4">
-        <div className="font-semibold tracking-wide text-white/80">IMAGE</div>
+        <div className="font-semibold tracking-wide text-white/80"></div>
         <div className="mt-1">{label}</div>
       </div>
     </div>
@@ -16,10 +16,10 @@ function ImagePlaceholder({ label, className = '' }) {
 
 function PillButton({ children, variant = 'primary', className = '', ...props }) {
   const base =
-    'inline-flex items-center justify-center rounded-full px-5 py-2.5 text-[12px] font-semibold tracking-wide transition'
+    'inline-flex items-center justify-center rounded-full px-5 py-2.5 text-[15px] font-semibold tracking-wide transition'
   const styles =
     variant === 'primary'
-      ? 'bg-[#C7FF4D] text-black hover:bg-[#B7FF21]'
+      ? 'bg-[#CBDBE0] text-black hover:bg-[#B7FF21]'
       : 'border border-white/20 bg-transparent text-white hover:border-white/35 hover:bg-white/5'
 
   return (
@@ -56,18 +56,19 @@ function Divider() {
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-[#040605] text-white antialiased">
-      {/* Background accents */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-40 -top-40 size-[520px] rounded-full bg-[#C7FF4D]/25 blur-[80px]" />
-        <div className="absolute -right-56 -top-28 size-[620px] rounded-full bg-[#C7FF4D]/20 blur-[110px]" />
-        <div className="absolute -left-56 top-[42%] size-[640px] rounded-full bg-[#C7FF4D]/15 blur-[120px]" />
-      </div>
+    <div className="min-h-screen bg-[#000000] text-white antialiased">
+
+      
+     
+
+       
+      
+
 
       <div className="relative">
         {/* Top nav */}
         <header className="mx-auto max-w-[1120px] px-5 pt-6">
-          <div className="rounded-full bg-[#D7FF82] px-4 py-3 text-black shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+          <div className="rounded-full bg-[#CEFEB7] px-4 py-3 text-black shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2">
                 <div className="grid size-8 place-items-center rounded-full bg-black/15">
@@ -78,21 +79,22 @@ export default function Landing() {
 
               <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-wide text-black/70 md:flex">
                 <a href="#" className="hover:text-black">
-                  Product
+                  Solutions
                 </a>
                 <a href="#" className="hover:text-black">
-                  Care Ecosystem
+                  Technology
                 </a>
                 <a href="#" className="hover:text-black">
-                  About
+                  Institutions
                 </a>
               </nav>
+              
 
               <button
                 type="button"
-                className="rounded-full bg-black px-4 py-2 text-[12px] font-semibold tracking-wide text-white hover:bg-black/85"
+                className="rounded-full bg-[#ccdce1] px-4 py-2 text-[12px] font-bold tracking-wide text-black hover:bg-black/85"
               >
-                Contact
+                Request Demo
               </button>
             </div>
           </div>
@@ -102,40 +104,39 @@ export default function Landing() {
         <section className="mx-auto max-w-[1120px] px-5 pb-16 pt-14">
           <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <h1 className="text-balance text-[40px] font-semibold leading-[1.06] tracking-[-0.02em] sm:text-[54px]">
+              <h1 className="text-balance text-[44px] font-semibold leading-[1.06] tracking-[-0.02em] sm:text-[54px]">
                 Hospital-grade safety &amp;
                 <br />
-                health intelligence— on
+                health intelligence — 
                 <br />
-                the wrist.
+                built for seniors living independently.
               </h1>
-              <p className="mt-5 max-w-[520px] text-[13px] leading-6 text-white/65">
-                Our sensor ecosystem is safe, seamless, action-oriented, and built to elevate
-                preventative care—from home to hospital.
+              <p className="mt-5 max-w-[520px] text-[20px] leading-6 text-white/65">
+                Monitor 10+ vitals, movement patterns, location, and cognitive changes — even without a smartphone.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <PillButton variant="primary">Request Demo</PillButton>
-                <PillButton variant="secondary">Buy a Starter Kit</PillButton>
+                <PillButton variant="secondary">Explore Raksha</PillButton>
               </div>
             </div>
 
             <div className="relative">
-              <div className="absolute -left-14 top-10 hidden size-[180px] rounded-full bg-[#C7FF4D]/15 blur-[55px] lg:block" />
+              <div className="" />
 
               <div className="relative h-[360px] w-full overflow-visible">
-                {/* Watch / band placeholder (leave space for your real image) */}
+          
                 <div className="absolute right-[-18px] top-[-8px] rotate-18">
                   <ImagePlaceholder
-                    label="Hero product render (watch/band)"
+                    label=""
                     className="h-[300px] w-[440px] rounded-[44px]"
                   />
                 </div>
 
                 <div className="absolute right-3 top-[170px] hidden max-w-[220px] text-right text-[11px] leading-5 text-white/45 lg:block">
-                  Add your product render here.
+                 <image src = "../assets/wearable.png" alt = "wearable" className = "w-30"/>
                   <br />
-                  Keep transparent background for best match.
+                 
                 </div>
               </div>
             </div>
@@ -146,16 +147,15 @@ export default function Landing() {
         <section className="mx-auto max-w-[1120px] px-5 pb-14">
           <Divider />
           <div className="pt-12">
-            <h2 className="text-[16px] font-semibold tracking-tight">Trusted Across The Care Ecosystem</h2>
-            <p className="mt-2 max-w-[680px] text-[12.5px] leading-6 text-white/60">
-              Designed for clinicians, researchers, and innovators. Built to integrate with real
-              workflows and deliver actionable, privacy-aware insights.
+            <h2 className="text-[30px] font-semibold tracking-tight">Supported by Healthcare & Research Partners</h2>
+            <p className="mt-2 max-w-[680px] text-[18px] leading-6 text-white">
+             Deployed, evaluated, and developed in collaboration with leaders in healthcare, research, and innovation.
             </p>
 
             <div className="mt-9 grid gap-6 md:grid-cols-3">
               {[
                 {
-                  title: 'US Hospitals',
+                  title: ' Hospitals',
                   desc: 'Clinical-grade insights to support safety, monitoring, and proactive care.',
                 },
                 {
@@ -169,10 +169,10 @@ export default function Landing() {
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div
-                    className="text-[13px] font-semibold tracking-tight"
+                    className="text-[18px] font-semibold tracking-tight"
                     dangerouslySetInnerHTML={{ __html: item.title }}
                   />
-                  <div className="mt-2 text-[12px] leading-6 text-white/60">{item.desc}</div>
+                  <div className="mt-2 text-[15px] leading-6 text-white/60">{item.desc}</div>
                 </div>
               ))}
             </div>
@@ -186,10 +186,10 @@ export default function Landing() {
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <h2 className="text-balance text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[34px]">
-                Family structures are changing. Senior risks are rising
+               Families are changing. Seniors are increasingly living alone.
               </h2>
 
-              <div className="mt-7 space-y-4 text-[12.5px] leading-6 text-white/65">
+              <div className="mt-7 space-y-4 text-[20px] leading-6 text-white">
                 <p>
                   <span className="font-semibold text-white/85">60%</span> of senior populations
                   live in nuclear family structures with limited daily oversight.
@@ -205,28 +205,7 @@ export default function Landing() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-              <SectionKicker>INSIGHTS</SectionKicker>
-              <div className="mt-2 text-[15px] font-semibold tracking-tight">
-                Continuous signals, fewer blind spots
-              </div>
-              <div className="mt-4 space-y-3">
-                {[
-                  'Fall detection with contextual movement patterns',
-                  'Cognitive & behavioral baselines over time',
-                  'Location + safety alerts when it matters most',
-                ].map((t) => (
-                  <div key={t} className="flex gap-3">
-                    <div className="mt-1 size-5 rounded-md bg-[#C7FF4D]/20 ring-1 ring-white/10" />
-                    <div className="text-[12px] leading-6 text-white/65">{t}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6">
-                <ImagePlaceholder label="Section supporting image / illustration" className="h-[140px] w-full" />
-              </div>
-            </div>
+           
           </div>
 
           {/* Feature cards row */}
@@ -270,7 +249,7 @@ export default function Landing() {
           </div>
 
           <div className="relative mx-auto max-w-[1120px] px-5 text-center">
-            <h2 className="text-[16px] font-semibold tracking-tight">The Seamless Ecosystem</h2>
+            <h2 className="text-[40px] font-semibold tracking-tight">How Stealthera Works — From Signal to Action</h2>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-3">
               {[
