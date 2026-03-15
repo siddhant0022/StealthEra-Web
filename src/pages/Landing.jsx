@@ -1,3 +1,8 @@
+import wearable from '../assets/wearable.png'
+import animation from '../assets/animation.png'
+import group20 from '../assets/Group 20.png'
+import group23 from '../assets/Group 23 (1).png'
+
 function ImagePlaceholder({ label, className = '' }) {
   return (
     <div
@@ -124,19 +129,17 @@ export default function Landing() {
             <div className="relative">
               <div className="" />
 
-              <div className="relative h-[360px] w-full overflow-visible">
-          
-                <div className="absolute right-[-18px] top-[-8px] rotate-18">
-                  <ImagePlaceholder
-                    label=""
-                    className="h-[300px] w-[440px] rounded-[44px]"
+              <div className="relative h-[400px] w-full overflow-visible">
+                <div className="absolute -right-180 -top-25 transform -rotate-[-45deg]">
+                  <img
+                    src={wearable}
+                    alt="Wearable device"
+                    className="w-[90vw] max-w-[1220px] rounded-[44px] object-cover"
                   />
                 </div>
 
-                <div className="absolute right-3 top-[170px] hidden max-w-[220px] text-right text-[11px] leading-5 text-white/45 lg:block">
-                 <image src = "../assets/wearable.png" alt = "wearable" className = "w-30"/>
-                  <br />
-                 
+                <div className="absolute right-20 top-[220px] max-w-[240px] text-right text-[11px] leading-5 text-white/45 lg:block ">
+                  10+ biosignals • AI-driven insights • 4G standalone • Caregiver & hospital dashboards
                 </div>
               </div>
             </div>
@@ -181,102 +184,234 @@ export default function Landing() {
 
         {/* Changing families section */}
         <section className="relative mx-auto max-w-[1120px] px-5 pb-16 pt-6">
-          <div className="absolute -left-10 top-2 hidden size-[220px] rounded-full bg-[#C7FF4D]/10 blur-[65px] lg:block" />
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] items-center">
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src={animation}
+                alt="Illustration of changing families"
+                className="w-[280px] max-w-[240px] lg:w-[220px] lg:max-w-[420px]"
+              />
+            </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-            <div>
+            <div className="space-y-6">
               <h2 className="text-balance text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[34px]">
-               Families are changing. Seniors are increasingly living alone.
+                Families are changing. Seniors are increasingly living alone.
               </h2>
 
-              <div className="mt-7 space-y-4 text-[20px] leading-6 text-white">
+              <div className="space-y-4 text-[20px] leading-6 text-white">
                 <p>
-                  <span className="font-semibold text-white/85">60%</span> of senior populations
-                  live in nuclear family structures with limited daily oversight.
+                  <span className="font-semibold text-white/85">60%</span> of senior populations now live in nuclear family structures with limited daily oversight.
                 </p>
                 <p>
-                  <span className="font-semibold text-white/85">1 in 3</span> seniors experience
-                  cognitive decline that goes unnoticed in care settings.
+                  <span className="font-semibold text-white/85">1 in 3</span> seniors experience cognitive decline that goes undetected in early, treatable stages.
                 </p>
                 <p>
-                  Unnoticed falls are the leading cause of hospitalizations beyond primary illnesses
-                  in the elderly.
+                  Unnoticed falls are the leading cause of hospitalizations, delaying response and <span className="font-semibold text-white/85">increasing risk by 80%</span>.
+                </p>
+                <p>
+                  Manual check‑ins only capture a moment. Emergencies happen in the silent gaps between calls.
                 </p>
               </div>
             </div>
-
-           
           </div>
 
-          {/* Feature cards row */}
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+         {/* Solutions Section */}
+
+          <div className="mt-28 grid gap-6 lg:grid-cols-3">
             {[
               {
-                title: 'Cognitive & Behavioral',
-                desc: 'Detect subtle changes early with baseline-aware insights.',
+                title: 'Cognitive & Behavioral Insights',
+                items: [
+                  '10+ clinical‑grade vitals tracked 24/7',
+                  'AI‑driven personalized baselines',
+                  'Early abnormality detection',
+                ],
               },
               {
                 title: 'Continuous Health Intelligence',
-                desc: 'Vitals + trends that remain useful outside the clinic.',
+                items: [
+                  'Speech pattern & volatility analysis',
+                  'Subtle routine deviation tracking',
+                  'Sleep hygiene & circadian monitoring',
+                ],
               },
               {
-                title: 'Safety & Location',
-                desc: 'Smart alerts designed for caregivers and seniors.',
-              },
-              {
-                title: 'Care Collaboration',
-                desc: 'Share the right signal with the right person.',
+                title: 'Safety & Location Awareness',
+                items: [
+                  'Precision fall detection algorithms',
+                  'One‑touch SOS emergency bypass',
+                  'Advanced geofencing & wandering alerts',
+                ],
               },
             ].map((card) => (
               <div
                 key={card.title}
-                className="rounded-2xl border border-white/10 bg-[#070908] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
               >
-                <MiniIcon />
-                <div className="mt-4 text-[13px] font-semibold tracking-tight">{card.title}</div>
-                <div className="mt-2 text-[12px] leading-6 text-white/60">{card.desc}</div>
+                <div className="flex items-start gap-3">
+                  <div className="grid size-10 place-items-center rounded-2xl bg-[#C7FF4D]/10">
+                    <div className="size-4 rounded-full bg-[#C7FF4D]/80" />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-[18px] font-semibold">{card.title}</div>
+                    <div className="h-px w-15 bg-white" />
+                  </div>
+                </div>
+
+                <ul className="mt-4 space-y-2 text-[15px] leading-6 text-white list-disc list-inside">
+                  {card.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
+
+          <div className="mt-10 text-center text-[17px] text-white">“Not just monitoring — early understanding.”</div>
         </section>
 
-        {/* Seamless ecosystem band */}
-        <section className="relative py-16">
-          <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute -left-36 top-1/2 h-[240px] w-[260px] -translate-y-1/2 rounded-[48px] bg-[#C7FF4D]/30 blur-[0px]" />
-            <div className="absolute -right-36 top-1/2 h-[240px] w-[260px] -translate-y-1/2 rounded-[48px] bg-[#C7FF4D]/30 blur-[0px]" />
-            <div className="absolute left-1/2 top-1/2 h-[260px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C7FF4D]/10 blur-[85px]" />
+        {/* Seamless ecosystem band component */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0">
+            <img
+              src={group20}
+              alt="Left side decoration"
+              className="absolute left-0 top-1/2 h-[360px] w-[260px] -translate-y-1/2 object-contain"
+            />
+            <img
+              src={group23}
+              alt="Right side decoration"
+              className="absolute right-0 top-1/2 h-[360px] w-[260px] -translate-y-1/2 object-contain"
+            />
           </div>
 
           <div className="relative mx-auto max-w-[1120px] px-5 text-center">
             <h2 className="text-[40px] font-semibold tracking-tight">How Stealthera Works — From Signal to Action</h2>
 
-            <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            <div className="mt-32 flex flex-row items-center justify-center gap-5 lg:flex-row lg:items-center lg:gap-15 py-12">
               {[
-                { title: 'Wearable', desc: 'Signals captured continuously.' },
-                { title: 'Home Hub', desc: 'Contextual monitoring & sync.' },
-                { title: 'Care Portal', desc: 'Insights for teams & family.' },
-              ].map((x) => (
-                <div key={x.title} className="flex flex-col items-center">
-                  <div className="grid size-12 place-items-center rounded-full border border-white/10 bg-white/5">
-                    <div className="size-4 rounded-full bg-[#C7FF4D]/90" />
+                {
+                  title: 'Raksha Wearable',
+                  subtitle: 'Hospital-grade sensor',
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 text-white">
+                      <path
+                        d="M12 4L19 9M12 4L5 9M12 4V20"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M5 9L12 14L19 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: 'Raksha Wearable',
+                  subtitle: 'Hospital-grade sensor',
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 text-white">
+                      <path
+                        d="M4 12H20"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M12 4V20"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: 'Raksha Wearable',
+                  subtitle: 'Hospital-grade sensor',
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 text-white">
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M12 6v6l4 2"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ),
+                },
+                {
+                  title: 'Raksha Wearable',
+                  subtitle: 'Hospital-grade sensor',
+                  icon: (
+                    <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 text-white">
+                      <path
+                        d="M4 4h16v16H4V4z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M8 8h8v8H8V8z"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  ),
+                },
+              ].map((step, idx) => (
+                <div key={`${step.title}-${idx}`} className="flex flex-col items-center gap-5">
+                  <div className="grid h-16 w-16 place-items-center rounded-full bg-[#C7FF4D]/10 ring-1 ring-white/10">
+                    {step.icon}
                   </div>
-                  <div className="mt-3 text-[13px] font-semibold">{x.title}</div>
-                  <div className="mt-1 text-[12px] text-white/60">{x.desc}</div>
+
+                  <div className="text-left">
+                    <div className="text-[15px] font-semibold">{step.title}</div>
+                    <div className="mt-1 text-[12px] text-white/60">{step.subtitle}</div>
+                  </div>
+
+                  {idx < 3 ? (
+                    <div className="hidden lg:flex">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-white/40"
+                      >
+                        <path
+                          d="M4 12H20"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M16 8L20 12L16 16"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-[11px] text-white/45">
-              {['Partner Logo', 'Partner Logo', 'Partner Logo', 'Partner Logo', 'Partner Logo'].map((t, idx) => (
-                <div
-                  key={`${t}-${idx}`}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2"
-                >
-                  {t}
-                </div>
-              ))}
-            </div>
+           
           </div>
         </section>
 
