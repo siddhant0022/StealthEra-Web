@@ -150,9 +150,9 @@ export default function SignalToActionFlow() {
   return (
     <div
       style={{ background: "#000"}}
-      className="w-full flex items-center justify-center px-1 py-16 overflow-hidden"
+      className="w-full flex items-center justify-center px-1 py-16 overflow-hidden min-h-screen"
     >
-      <div className="w-full max-w-6xl flex flex-col items-center">
+      <div className="w-full  flex flex-col items-center">
 
         {/* ── Title ── */}
         <h2
@@ -193,8 +193,8 @@ export default function SignalToActionFlow() {
                       ref={el => (glowRefs.current[i] = el)}
                       className="absolute rounded-full pointer-events-none"
                       style={{
-                        width: 72,
-                        height: 72,
+                        width: 100,
+                        height: 100,
                         background: "radial-gradient(circle, #85E82D66 0%, transparent 75%)",
                         filter: "blur(10px)",
                         opacity: 0,
@@ -271,8 +271,8 @@ function PanelImage({ flip }) {
   return (
     <div
       style={{
-        width: 148,
-        height: 210,
+        width: "325px",
+        height: "450px",
         position: "relative",
         transform: flip ? "scaleX(-1)" : "none",
         filter: [

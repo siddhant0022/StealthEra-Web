@@ -182,7 +182,7 @@ export default function HealthInsightsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-black min-h-screen overflow-hidden flex flex-col items-center justify-center "
+      className="relative bg-black w-full min-h-screen overflow-hidden flex flex-col items-center justify-center "
       style={{ fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}
     >
       
@@ -202,7 +202,7 @@ export default function HealthInsightsSection() {
         </h2>
 
         {/* ── Two-column layout ────────────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-12 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center md:items-center gap-12 md:gap-0 px-2">
 
           {/* ══ LEFT: Wheel ═════════════════════════════════════════════════ */}
           <div
@@ -218,7 +218,7 @@ export default function HealthInsightsSection() {
               {/* ── SVG Wheel Rings ─────────────────────────────────────── */}
               <svg
                 viewBox="0 0 420 420"
-                className="w-full h-full"
+                className="w-full h-full "
                 style={{ overflow: "visible" }}
               >
                 <defs>

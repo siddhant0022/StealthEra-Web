@@ -61,7 +61,7 @@ function Divider() {
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-[#000000] text-white antialiased">
+    <div className="w-full min-h-screen bg-[#000000] text-white antialiased">
 
       
      
@@ -70,76 +70,115 @@ export default function Landing() {
       
 
 
-      <div className="relative">
+      <div className="w-full relative">
         {/* Top nav */}
-        <header className="mx-auto max-w-[1120px] px-5 pt-6">
-          <div className="rounded-full bg-[#CEFEB7] px-4 py-3 text-black shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-2">
-                <div className="grid size-8 place-items-center rounded-full bg-black/15">
-                  <div className="size-3 rounded-full bg-black/70" />
+        <header className="w-full px-5 pt-6">
+          <div className="mx-auto max-w-[1120px]">
+            <div className="rounded-full bg-[#CEFEB7] px-4 py-3 text-black shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="grid size-8 place-items-center rounded-full bg-black/15">
+                    <div className="size-3 rounded-full bg-black/70" />
+                  </div>
+                  <div className="text-[14px] font-semibold tracking-tight">StealthEra</div>
                 </div>
-                <div className="text-[14px] font-semibold tracking-tight">StealthEra</div>
+
+                <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-wide text-black/70 md:flex">
+                  <a href="#" className="hover:text-black">
+                    Solutions
+                  </a>
+                  <a href="#" className="hover:text-black">
+                    Technology
+                  </a>
+                  <a href="#" className="hover:text-black">
+                    Institutions
+                  </a>
+                </nav>
+                
+
+                <button
+                  type="button"
+                  className="rounded-full bg-[#ccdce1] px-4 py-2 text-[12px] font-bold tracking-wide text-black hover:bg-black/85"
+                >
+                  Request Demo
+                </button>
               </div>
-
-              <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-wide text-black/70 md:flex">
-                <a href="#" className="hover:text-black">
-                  Solutions
-                </a>
-                <a href="#" className="hover:text-black">
-                  Technology
-                </a>
-                <a href="#" className="hover:text-black">
-                  Institutions
-                </a>
-              </nav>
-              
-
-              <button
-                type="button"
-                className="rounded-full bg-[#ccdce1] px-4 py-2 text-[12px] font-bold tracking-wide text-black hover:bg-black/85"
-              >
-                Request Demo
-              </button>
             </div>
           </div>
         </header>
 
-        {/* Hero */}
-        <section className="mx-auto max-w-[1120px] px-5 pb-16 pt-14">
-          <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <h1 className="text-balance text-[44px] font-semibold leading-[1.06] tracking-[-0.02em] sm:text-[54px]">
-                Hospital-grade safety &amp;
-                <br />
-                health intelligence — 
-                <br />
-                built for seniors living independently.
-              </h1>
-              <p className="mt-5 max-w-[520px] text-[20px] leading-6 text-white/65">
-                Monitor 10+ vitals, movement patterns, location, and cognitive changes — even without a smartphone.
-              </p>
+        {/* Hero - Mobile */}
+        <section className="block md:hidden w-full px-5 pb-16 pt-14 min-h-screen flex flex-col justify-center">
+          <div className="mx-auto max-w-[1120px] w-full">
+            <div className="grid items-center gap-10 grid-cols-1">
+              <div>
+                <h1 className="text-balance text-[32px] font-semibold leading-[1.06] tracking-[-0.02em]">
+                  Hospital-grade safety &amp;
+                  <br />
+                  health intelligence — 
+                  <br />
+                  built for seniors living independently.
+                </h1>
+                <p className="mt-5 max-w-[520px] text-[16px] leading-6 text-white/65">
+                  Monitor 10+ vitals, movement patterns, location, and cognitive changes — even without a smartphone.
+                </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <PillButton variant="primary">Request Demo</PillButton>
-                <PillButton variant="secondary">Explore Raksha</PillButton>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <PillButton variant="primary">Request Demo</PillButton>
+                  <PillButton variant="secondary">Explore Raksha</PillButton>
+                </div>
               </div>
-            </div>
 
-            <div className="relative">
-              <div className="" />
-
-              <div className="relative h-[400px] w-full overflow-visible">
-                <div className="absolute -right-180 -top-25 transform -rotate-[-45deg]">
+              <div className="relative w-full h-[300px]">
+                <div className="relative w-full h-full overflow-hidden rounded-[24px]">
                   <img
                     src={wearable}
                     alt="Wearable device"
-                    className="w-[90vw] max-w-[1220px] rounded-[44px] object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                <div className="absolute right-20 top-[220px] max-w-[240px] text-right text-[11px] leading-5 text-white/45 lg:block ">
-                  10+ biosignals • AI-driven insights • 4G standalone • Caregiver & hospital dashboards
+        {/* Hero - Desktop */}
+        <section className="hidden md:flex w-full px-5 pb-16 pt-14 min-h-screen flex-col justify-center">
+          <div className="mx-auto  w-full">
+            <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+              <div>
+                <h1 className="text-balance text-[44px] font-semibold leading-[1.06] tracking-[-0.02em] sm:text-[54px] px-24">
+                  Hospital-grade safety &amp;
+                  <br />
+                  health intelligence — 
+                  <br />
+                  built for seniors living independently.
+                </h1>
+                <p className="mt-5 max-w-[520px] text-[18px] leading-6 text-white/70 px-24">
+                  Monitor 10+ vitals, movement patterns, location, and cognitive changes — even without a smartphone.
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3 px-24">
+                  <PillButton variant="primary">Request Demo</PillButton>
+                  <PillButton variant="secondary">Explore Raksha</PillButton>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="" />
+
+                <div className="relative h-[500px] w-full overflow-hidden rounded-[44px]">
+                  <div className="absolute -right-125 -top-25 transform -rotate-[-45deg]">
+                    <img
+                      src={wearable}
+                      alt="Wearable device"
+                      className="w-[90vw] max-w-[1220px] rounded-[44px] object-cover"
+                    />
+                  </div>
+
+                  <div className="absolute right-20 top-[220px] max-w-[240px] text-right text-[11px] leading-5 text-white/45 lg:block">
+                    10+ biosignals • AI-driven insights • 4G standalone • Caregiver & hospital dashboards
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,8 +186,9 @@ export default function Landing() {
         </section>
 
         {/* Trusted section */}
-        <section className="mx-auto max-w-[1120px] px-5 pb-14">
-          <Divider />
+        <section className="w-full px-5 pb-14 ">
+          <div className="mx-auto max-w-[1120px]">
+            <Divider />
           <div className="pt-12">
             <h2 className="text-[30px] font-semibold tracking-tight">Supported by Healthcare & Research Partners</h2>
             <p className="mt-2 max-w-[680px] text-[18px] leading-6 text-white">
@@ -180,6 +220,7 @@ export default function Landing() {
               ))}
             </div>
           </div>
+          </div>
         </section>
 
         {/* Changing families section */}
@@ -192,57 +233,111 @@ export default function Landing() {
         {/* Seamless ecosystem band component */}
        
 
-        {/* Final section */}
-        <section className="mx-auto max-w-[1120px] px-5 pb-20 pt-12">
-          <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <h2 className="text-balance text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[34px]">
-                Continuous Health, Safety, And
-                <br />
-                Cognitive Intelligence— In One System.
-              </h2>
-              <p className="mt-4 max-w-[560px] text-[12.5px] leading-6 text-white/65">
-                Combine continuous sensing with privacy-first insights. Designed to be usable at
-                home and meaningful in clinical workflows.
-              </p>
+        {/* Final section - Mobile */}
+        <section className="block md:hidden w-full px-5 pb-20 pt-12">
+          <div className="mx-auto max-w-[1120px]">
+            <div className="grid items-center gap-10 grid-cols-1">
+              <div>
+                <h2 className="text-balance text-[24px] font-semibold leading-[1.12] tracking-[-0.02em]">
+                  Continuous Health, Safety, And
+                  <br />
+                  Cognitive Intelligence— In One System.
+                </h2>
+                <p className="mt-4 max-w-[560px] text-[14px] leading-6 text-white/65">
+                  Combine continuous sensing with privacy-first insights. Designed to be usable at
+                  home and meaningful in clinical workflows.
+                </p>
 
-              <div className="mt-8 space-y-4">
-                {[
-                  {
-                    title: 'Insights that stay actionable',
-                    desc: 'Signal quality and context to reduce noise and false alarms.',
-                  },
-                  {
-                    title: 'Built for real-world adoption',
-                    desc: 'Low-friction setup across seniors, caregivers, and clinicians.',
-                  },
-                  {
-                    title: 'Secure by design',
-                    desc: 'Data minimization and access control across the ecosystem.',
-                  },
-                ].map((f) => (
-                  <div key={f.title} className="flex gap-4">
-                    <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#C7FF4D]/15 ring-1 ring-white/10" />
-                    <div>
-                      <div className="text-[13px] font-semibold tracking-tight">{f.title}</div>
-                      <div className="mt-1 text-[12px] leading-6 text-white/60">{f.desc}</div>
+                <div className="mt-8 space-y-4">
+                  {[
+                    {
+                      title: 'Insights that stay actionable',
+                      desc: 'Signal quality and context to reduce noise and false alarms.',
+                    },
+                    {
+                      title: 'Built for real-world adoption',
+                      desc: 'Low-friction setup across seniors, caregivers, and clinicians.',
+                    },
+                    {
+                      title: 'Secure by design',
+                      desc: 'Data minimization and access control across the ecosystem.',
+                    },
+                  ].map((f) => (
+                    <div key={f.title} className="flex gap-4">
+                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#C7FF4D]/15 ring-1 ring-white/10" />
+                      <div>
+                        <div className="text-[13px] font-semibold tracking-tight">{f.title}</div>
+                        <div className="mt-1 text-[12px] leading-6 text-white/60">{f.desc}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="relative">
-              <div className="absolute -right-14 -top-12 hidden size-[200px] rounded-full bg-[#C7FF4D]/10 blur-[70px] lg:block" />
-              <ImagePlaceholder
-                label="App UI / phone mock image"
-                className="ml-auto aspect-9/16 w-full max-w-[360px] rounded-[28px]"
-              />
+              <div className="relative flex justify-center w-full">
+                <ImagePlaceholder
+                  label="App UI / phone mock image"
+                  className="aspect-9/16 w-full max-w-[280px] rounded-[28px]"
+                />
+              </div>
             </div>
           </div>
         </section>
 
-        <footer className="mx-auto max-w-[1120px] px-5 pb-10">
+        {/* Final section - Desktop */}
+        <section className="hidden md:block w-full px-5 pb-20 pt-12">
+          <div className="mx-auto max-w-[1120px]">
+            <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+              <div>
+                <h2 className="text-balance text-[28px] font-semibold leading-[1.12] tracking-[-0.02em] sm:text-[34px]">
+                  Continuous Health, Safety, And
+                  <br />
+                  Cognitive Intelligence— In One System.
+                </h2>
+                <p className="mt-4 max-w-[560px] text-[12.5px] leading-6 text-white/65">
+                  Combine continuous sensing with privacy-first insights. Designed to be usable at
+                  home and meaningful in clinical workflows.
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  {[
+                    {
+                      title: 'Insights that stay actionable',
+                      desc: 'Signal quality and context to reduce noise and false alarms.',
+                    },
+                    {
+                      title: 'Built for real-world adoption',
+                      desc: 'Low-friction setup across seniors, caregivers, and clinicians.',
+                    },
+                    {
+                      title: 'Secure by design',
+                      desc: 'Data minimization and access control across the ecosystem.',
+                    },
+                  ].map((f) => (
+                    <div key={f.title} className="flex gap-4">
+                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#C7FF4D]/15 ring-1 ring-white/10" />
+                      <div>
+                        <div className="text-[13px] font-semibold tracking-tight">{f.title}</div>
+                        <div className="mt-1 text-[12px] leading-6 text-white/60">{f.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute -right-14 -top-12 hidden size-[200px] rounded-full bg-[#C7FF4D]/10 blur-[70px] lg:block" />
+                <ImagePlaceholder
+                  label="App UI / phone mock image"
+                  className="ml-auto aspect-9/16 w-full max-w-[360px] rounded-[28px]"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="w-full px-5 pb-10">
+          <div className="mx-auto max-w-[1120px]">
           <Divider />
           <div className="flex flex-col items-start justify-between gap-4 pt-6 text-[12px] text-white/45 sm:flex-row sm:items-center">
             <div>© {new Date().getFullYear()} StealthEra</div>
@@ -257,6 +352,7 @@ export default function Landing() {
                 Contact
               </a>
             </div>
+          </div>
           </div>
         </footer>
       </div>
