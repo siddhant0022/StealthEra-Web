@@ -202,12 +202,12 @@ export default function HealthInsightsSection() {
         </h2>
 
         {/* ── Two-column layout ────────────────────────────────────────────── */}
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-12 md:gap-0 px-2">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-12 md:gap-6 px-2">
 
           {/* ══ LEFT: Wheel ═════════════════════════════════════════════════ */}
           <div
-            className="relative flex-shrink-0 flex items-center justify-center"
-            style={{ width: "420px", height: "420px", marginLeft: "-60px" }}
+            className="relative flex-shrink-0 flex items-center justify-center mx-auto self-center"
+            style={{ width: "min(420px, 90vw)", height: "min(420px, 90vw)" }}
           >
             {/* Rotating wheel wrapper */}
             <div

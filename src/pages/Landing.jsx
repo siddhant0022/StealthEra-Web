@@ -1,4 +1,5 @@
 import wearable from '../assets/wearable.png'
+import logo from '../assets/logo.png'
 import HealthInsightsSection from '../components/HealthInsightsSection'
 import HealthFeaturesSection from '../components/HealthFeaturesSection'
 import SignalToActionFlow from '../components/SignalToActionFlow'
@@ -55,6 +56,18 @@ function SectionKicker({ children }) {
   )
 }
 
+function Logo({ className = '' }) {
+  return (
+    <div className={['flex items-center justify-center', className].join(' ')}>
+      <img
+        src={logo}
+        alt="StealthEra logo"
+        className="h-4 w-30 sm:h-5 sm:w-20 md:h-[16px] md:w-[125px]"
+      />
+    </div>
+  )
+}
+
 function Divider() {
   return <div className="h-px w-full bg-white/10" />
 }
@@ -76,12 +89,7 @@ export default function Landing() {
           <div className="mx-auto max-w-[1120px]">
             <div className="rounded-full bg-[#CEFEB7] px-4 py-3 text-black shadow-[0_10px_50px_rgba(0,0,0,0.35)]">
               <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="grid size-8 place-items-center rounded-full bg-black/15">
-                    <div className="size-3 rounded-full bg-black/70" />
-                  </div>
-                  <div className="text-[14px] font-semibold tracking-tight">StealthEra</div>
-                </div>
+                <Logo className="text-[12px] md:text-[14px]" />
 
                 <nav className="hidden items-center gap-7 text-[12px] font-semibold tracking-wide text-black/70 md:flex">
                   <a href="#" className="hover:text-black">
@@ -340,8 +348,10 @@ export default function Landing() {
           <div className="mx-auto max-w-[1120px]">
           <Divider />
           <div className="flex flex-col items-start justify-between gap-4 pt-6 text-[12px] text-white/45 sm:flex-row sm:items-center">
-            <div>© {new Date().getFullYear()} StealthEra</div>
-            <div className="flex gap-5">
+            <div className="flex items-center gap-2 text-white/80">
+              <Logo className="h-5 w-30 sm:h-5 sm:w-20 md:h-[16px] md:w-[125px]" />
+            </div>
+            <div className="flex  item-center justify-center gap-5">
               <a className="hover:text-white" href="#">
                 Privacy
               </a>
