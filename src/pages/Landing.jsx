@@ -4,6 +4,7 @@ import logo from '../assets/logo.png'
 import HealthInsightsSection from '../components/HealthInsightsSection'
 import HealthFeaturesSection from '../components/HealthFeaturesSection'
 import SignalToActionFlow from '../components/SignalToActionFlow'
+import SeniorsSection from '../components/SeniorsSection'
 
 function ImagePlaceholder({ label, className = '' }) {
   return (
@@ -139,11 +140,11 @@ export default function Landing() {
               </div>
 
               <div className="relative w-full h-[300px]">
-                <div className="relative w-full h-full overflow-hidden rounded-[24px]">
+                <div className="relative w-full h-full rounded-[24px]">
                   <img
-                    src={wearable}
+                    src={hero}
                     alt="Wearable device"
-                    className="w-full h-full object-contain"
+                    className="w-[150%] h-[100%] object-cover absolute "
                   />
                 </div>
               </div>
@@ -233,8 +234,9 @@ export default function Landing() {
         </section>
 
         {/* Changing families section */}
-       <HealthInsightsSection/>
-
+      
+       <SeniorsSection/>
+     
        <HealthFeaturesSection/>
 
        <SignalToActionFlow/>
