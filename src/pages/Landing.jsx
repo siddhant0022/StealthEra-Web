@@ -1,4 +1,5 @@
 import wearable from '../assets/wearable.png'
+import hero from '../assets/hero.png'
 import logo from '../assets/logo.png'
 import HealthInsightsSection from '../components/HealthInsightsSection'
 import HealthFeaturesSection from '../components/HealthFeaturesSection'
@@ -118,7 +119,7 @@ export default function Landing() {
         {/* Hero - Mobile */}
         <section className="block md:hidden w-full px-5 pb-16 pt-14 min-h-screen flex flex-col justify-center">
           <div className="mx-auto max-w-[1120px] w-full">
-            <div className="grid items-center gap-10 grid-cols-1">
+            <div className="grid items-center gap-10 grid-cols-1 ">
               <div>
                 <h1 className="text-balance text-[32px] font-semibold leading-[1.06] tracking-[-0.02em]">
                   Hospital-grade safety &amp;
@@ -153,9 +154,9 @@ export default function Landing() {
         {/* Hero - Desktop */}
         <section className="hidden md:flex w-full px-5 pb-16 pt-14 min-h-screen flex-col justify-center">
           <div className="mx-auto  w-full">
-            <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="grid items-start gap-4 lg:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
               <div>
-                <h1 className="text-balance text-[44px] font-semibold leading-[1.06] tracking-[-0.02em] sm:text-[54px] px-24">
+                <h1 className="text-balance text-[44px] font-bold leading-[1.06] tracking-[-0.02em] sm:text-[52px] px-24">
                   Hospital-grade safety &amp;
                   <br />
                   health intelligence — 
@@ -175,10 +176,10 @@ export default function Landing() {
               <div className="relative">
                 <div className="" />
 
-                <div className="relative h-[500px] w-full overflow-hidden rounded-[44px]">
-                  <div className="absolute -right-125 -top-25 transform -rotate-[-45deg]">
+                <div className="relative h-[500px] w-[100%] overflow-hidden rounded-[44px] ">
+                  <div className=" absolute -right-110 -top-25 transform -rotate-[-45deg]  ">
                     <img
-                      src={wearable}
+                      src={hero}
                       alt="Wearable device"
                       className="w-[90vw] max-w-[1220px] rounded-[44px] object-cover"
                     />
