@@ -287,7 +287,7 @@ export default function Landing() {
                     },
                   ].map((f) => (
                     <div key={f.title} className="flex gap-4">
-                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#C7FF4D]/15 ring-1 ring-white/10" />
+                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#85E82D] ring-1 ring-white/10" />
                       <div>
                         <div className="text-[13px] font-semibold tracking-tight">{f.title}</div>
                         <div className="mt-1 text-[12px] leading-6 text-white/60">{f.desc}</div>
@@ -338,7 +338,7 @@ export default function Landing() {
                     },
                   ].map((f) => (
                     <div key={f.title} className="flex gap-4">
-                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#C7FF4D]/15 ring-1 ring-white/10" />
+                      <div className="mt-1 size-10 shrink-0 rounded-2xl bg-[#85E82D] ring-1 ring-white/10" />
                       <div>
                         <div className="text-[13px] font-semibold tracking-tight">{f.title}</div>
                         <div className="mt-1 text-[12px] leading-6 text-white/60">{f.desc}</div>
