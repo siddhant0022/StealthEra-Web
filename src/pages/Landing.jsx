@@ -1,22 +1,34 @@
 import wearable from '../assets/wearable.png'
 import hero from '../assets/hero.png'
 import logo from '../assets/logo.png'
+import dashboardMobile from '../assets/dashboardformobile.jpeg'
+import dashboardPc from '../assets/dashboardforpc.png'
 import HealthInsightsSection from '../components/HealthInsightsSection'
 import HealthFeaturesSection from '../components/HealthFeaturesSection'
 import SignalToActionFlow from '../components/SignalToActionFlow'
 import SeniorsSection from '../components/SeniorsSection'
 
-function ImagePlaceholder({ label, className = '' }) {
+function DashboardShowcase({ className = '', imageClassName = '' }) {
   return (
     <div
       className={[
-        'flex items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/5 text-center text-[11px] text-white/70',
+        'relative overflow-hidden rounded-[30px] border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(199,255,77,0.12),transparent_38%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-2 shadow-[0_28px_80px_rgba(0,0,0,0.45)] backdrop-blur-sm',
         className,
       ].join(' ')}
     >
-      <div className="px-4">
-        <div className="font-semibold tracking-wide text-white/80"></div>
-        <div className="mt-1">{label}</div>
+      <div className="pointer-events-none absolute inset-x-6 top-0 h-24 rounded-full bg-[#C7FF4D]/10 blur-3xl" />
+      <div className="relative h-full w-full overflow-hidden rounded-[24px] border border-white/8 bg-[#0a0f08]">
+        <picture>
+          <source media="(min-width: 1024px)" srcSet={dashboardPc} />
+          <img
+            src={dashboardMobile}
+            alt="StealthEra dashboard interface"
+            className={[
+              'h-full w-full object-cover object-top',
+              imageClassName,
+            ].join(' ')}
+          />
+        </picture>
       </div>
     </div>
   )
@@ -286,9 +298,9 @@ export default function Landing() {
               </div>
 
               <div className="relative flex justify-center w-full">
-                <ImagePlaceholder
-                  label="App UI / phone mock image"
-                  className="aspect-9/16 w-full max-w-[280px] rounded-[28px]"
+                <DashboardShowcase
+                  className="aspect-[10/16] w-full max-w-[320px]"
+                  imageClassName="object-contain md:object-cover"
                 />
               </div>
             </div>
@@ -338,9 +350,13 @@ export default function Landing() {
 
               <div className="relative">
                 <div className="absolute -right-14 -top-12 hidden size-[200px] rounded-full bg-[#C7FF4D]/10 blur-[70px] lg:block" />
-                <ImagePlaceholder
-                  label="App UI / phone mock image"
-                  className="ml-auto aspect-9/16 w-full max-w-[360px] rounded-[28px]"
+                <DashboardShowcase
+                  className="mx-auto aspect-[4/5] max-w-[340px] md:max-w-[380px] lg:hidden"
+                  imageClassName="object-contain object-top"
+                />
+                <DashboardShowcase
+                  className="ml-auto hidden aspect-[16/11] w-full max-w-[620px] lg:block"
+                  imageClassName="object-cover object-center"
                 />
               </div>
             </div>
