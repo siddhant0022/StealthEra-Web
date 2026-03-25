@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import wearable from '../assets/wearable.png'
 import hero from '../assets/hero.png'
 import logo from '../assets/logo.png'
@@ -24,7 +25,7 @@ function DashboardShowcase({ className = '', imageClassName = '' }) {
             src={dashboardMobile}
             alt="StealthEra dashboard interface"
             className={[
-              'h-full w-full object-cover object-top',
+              'h-full w-full object-contain object-center',
               imageClassName,
             ].join(' ')}
           />
@@ -84,6 +85,55 @@ function Logo({ className = '' }) {
 
 function Divider() {
   return <div className="h-px w-full bg-white/10" />
+}
+
+function WatchSurfaceOverlay({ className = '', textClassName = '' }) {
+  const [position, setPosition] = useState({ x: 50, y: 50, active: false })
+
+  const setFromPoint = (clientX, clientY, target) => {
+    const rect = target.getBoundingClientRect()
+    const rawX = ((clientX - rect.left) / rect.width) * 100
+    const rawY = ((clientY - rect.top) / rect.height) * 100
+    const x = Math.max(10, Math.min(90, rawX))
+    const y = Math.max(14, Math.min(86, rawY))
+    setPosition({ x, y, active: true })
+  }
+
+  const handlePointerMove = (event) => {
+    setFromPoint(event.clientX, event.clientY, event.currentTarget)
+  }
+
+  const handleTouchMove = (event) => {
+    const touch = event.touches?.[0]
+    if (!touch) return
+    setFromPoint(touch.clientX, touch.clientY, event.currentTarget)
+  }
+
+  return (
+    <div
+      className={['absolute z-20 touch-none', className].join(' ')}
+      onPointerEnter={handlePointerMove}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={() => setPosition((prev) => ({ ...prev, active: false }))}
+      onTouchStart={handleTouchMove}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={() => setPosition((prev) => ({ ...prev, active: false }))}
+    >
+      <div
+        className={[
+          'pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/35 bg-white/12 px-3 py-2 text-[10px] font-medium leading-4 text-white/90 backdrop-blur-md shadow-[0_12px_36px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-200',
+          textClassName,
+        ].join(' ')}
+        style={{
+          left: `${position.x}%`,
+          top: `${position.y}%`,
+          opacity: position.active ? 1 : 0.9,
+        }}
+      >
+        10+ biosignals • AI-driven insights • 4G standalone • Caregiver & hospital dashboards
+      </div>
+    </div>
+  )
 }
 
 export default function Landing() {
@@ -158,6 +208,10 @@ export default function Landing() {
                     alt="Wearable device"
                     className="w-[150%] h-[100%] object-cover absolute "
                   />
+                  <WatchSurfaceOverlay
+                    className="left-[42%] top-[32%] h-[130px] w-[160px]"
+                    textClassName="max-w-[140px] text-[9px] leading-3.5"
+                  />
                 </div>
               </div>
             </div>
@@ -198,9 +252,10 @@ export default function Landing() {
                     />
                   </div>
 
-                  <div className="absolute right-20 top-[220px] max-w-[240px] text-right text-[11px] leading-5 text-white/45 lg:block">
-                    10+ biosignals • AI-driven insights • 4G standalone • Caregiver & hospital dashboards
-                  </div>
+                  <WatchSurfaceOverlay
+                    className="right-14 top-[150px] h-[190px] w-[280px]"
+                    textClassName="max-w-[250px] text-right text-[11px] leading-5"
+                  />
                 </div>
               </div>
             </div>
@@ -300,7 +355,7 @@ export default function Landing() {
               <div className="relative flex justify-center w-full">
                 <DashboardShowcase
                   className="aspect-[10/16] w-full max-w-[320px]"
-                  imageClassName="object-contain md:object-cover"
+                  imageClassName="object-contain object-center"
                 />
               </div>
             </div>
@@ -352,11 +407,11 @@ export default function Landing() {
                 <div className="absolute -right-14 -top-12 hidden size-[200px] rounded-full bg-[#C7FF4D]/10 blur-[70px] lg:block" />
                 <DashboardShowcase
                   className="mx-auto aspect-[4/5] max-w-[340px] md:max-w-[380px] lg:hidden"
-                  imageClassName="object-contain object-top"
+                  imageClassName="object-contain object-center"
                 />
                 <DashboardShowcase
                   className="ml-auto hidden aspect-[16/11] w-full max-w-[620px] lg:block"
-                  imageClassName="object-cover object-center"
+                  imageClassName="object-contain object-center"
                 />
               </div>
             </div>

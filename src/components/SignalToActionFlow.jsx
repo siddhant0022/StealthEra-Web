@@ -271,13 +271,14 @@ function PanelImage({ flip }) {
   return (
     <div
       style={{
-        width: "325px",
-        height: "450px",
+        width: "clamp(130px, 15vw, 190px)",
+        height: "clamp(180px, 24vw, 260px)",
         position: "relative",
         transform: flip ? "scaleX(-1)" : "none",
+        opacity: 0.9,
         filter: [
-          "drop-shadow(0 0 24px #6FBE2977)",
-          "drop-shadow(0 0 60px #85E82D33)",
+          "drop-shadow(0 0 12px #6FBE2950)",
+          "drop-shadow(0 0 24px #85E82D22)",
         ].join(" "),
       }}
     >
@@ -299,8 +300,8 @@ function PanelImage({ flip }) {
           inset: 0,
           borderRadius: 18,
           background: flip
-            ? "linear-gradient(to right, transparent 35%, #00000088 100%)"
-            : "linear-gradient(to left,  transparent 35%, #00000088 100%)",
+            ? "linear-gradient(to right, transparent 45%, #00000066 100%)"
+            : "linear-gradient(to left,  transparent 45%, #00000066 100%)",
           pointerEvents: "none",
         }}
       />
@@ -310,7 +311,7 @@ function PanelImage({ flip }) {
           position: "absolute",
           inset: 0,
           borderRadius: 18,
-          background: "linear-gradient(to bottom, #00000055 0%, transparent 25%, transparent 75%, #00000055 100%)",
+          background: "linear-gradient(to bottom, #00000044 0%, transparent 25%, transparent 75%, #00000044 100%)",
           pointerEvents: "none",
         }}
       />

@@ -219,20 +219,20 @@ function DesktopTextRows({ activeIndex }) {
             <div style={{ paddingTop: 2 }}>
               {block.stat && (
                 <motion.span
-                  animate={{ fontSize: isActive ? "46px" : "28px", color: isActive ? "#fff" : "rgba(255,255,255,0.45)" }}
+                  animate={{ fontSize: isActive ? "52px" : "32px", color: isActive ? "#fff" : "rgba(255,255,255,0.45)" }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   style={{ fontWeight: 800, lineHeight: 1, display: "inline", marginRight: 8, verticalAlign: "middle" }}
                 >{block.stat}</motion.span>
               )}
               <motion.span
-                animate={{ fontSize: isActive ? "15px" : "13px", color: isActive ? "rgba(255,255,255,0.86)" : "rgba(255,255,255,0.42)" }}
+                animate={{ fontSize: isActive ? "19px" : "16px", color: isActive ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.5)" }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 style={{ fontWeight: 300, lineHeight: 1.68, verticalAlign: block.stat ? "middle" : "unset" }}
               >{block.text}</motion.span>
               {block.emphasis && (
                 <> {" "}
                   <motion.span
-                    animate={{ fontSize: isActive ? "19px" : "13px", color: isActive ? "#fff" : "rgba(255,255,255,0.42)" }}
+                    animate={{ fontSize: isActive ? "25px" : "18px", color: isActive ? "#fff" : "rgba(255,255,255,0.5)" }}
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     style={{ fontWeight: 700, lineHeight: 1.4 }}
                   >{block.emphasis}</motion.span>
@@ -441,7 +441,11 @@ export default function SeniorsSection() {
 
   useMotionValueEvent(mProgress, "change", (v) => {
     if (!isMobile) return;
-    const idx = Math.min(Math.floor(v * BLOCKS.length), BLOCKS.length - 1);
+    const mobileLead = 0.2;
+    const idx = Math.min(
+      Math.floor(v * BLOCKS.length + mobileLead),
+      BLOCKS.length - 1
+    );
     setActiveIndex(idx);
   });
 
@@ -455,7 +459,7 @@ export default function SeniorsSection() {
       ref={isMobile ? outerRef : desktopRef}
       style={{
         background: "#050505",
-        minHeight: isMobile ? "500vh" : "100vh",
+        minHeight: isMobile ? "640vh" : "100vh",
         position: "relative",
         fontFamily: "'DM Sans','Helvetica Neue',Arial,sans-serif",
       }}
@@ -463,12 +467,13 @@ export default function SeniorsSection() {
       <div style={{
         position: isMobile ? "sticky" : "relative",
         top: 0,
-        height: isMobile ? "100vh" : "auto",
+        height: isMobile ? "100svh" : "auto",
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         overflow: "hidden",
-        padding: isMobile ? "40px 0" : "72px 0",
+        padding: isMobile ? "20px 0" : "72px 0",
       }}>
         {/* Ambient glow */}
         <div style={{
@@ -497,7 +502,7 @@ export default function SeniorsSection() {
               fontSize: isMobile ? "clamp(18px, 5vw, 24px)" : "clamp(20px, 2.6vw, 34px)",
               lineHeight: 1.28,
               letterSpacing: "-0.02em",
-              marginBottom: isMobile ? 28 : "clamp(32px, 5vw, 52px)",
+              marginBottom: isMobile ? 18 : "clamp(32px, 5vw, 52px)",
               textAlign: isMobile ? "center" : "left",
             }}
           >
@@ -507,11 +512,17 @@ export default function SeniorsSection() {
           {/* ── DESKTOP — original flex row layout ── */}
           {!isMobile && (
             <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: 0 }}>
-              <DesktopWheel
-                rotation={dWheelRotation}
-                counterRotation={dCounterRot}
-                activeIndex={activeIndex}
-              />
+              <div
+                style={{
+                  marginLeft: "calc((100vw - min(1060px, 100vw)) / -2 - clamp(16px, 4vw, 48px))",
+                }}
+              >
+                <DesktopWheel
+                  rotation={dWheelRotation}
+                  counterRotation={dCounterRot}
+                  activeIndex={activeIndex}
+                />
+              </div>
               <div style={{ flex: 1, paddingLeft: "clamp(20px, 4vw, 56px)" }}>
                 <DesktopTextRows activeIndex={activeIndex} />
               </div>
